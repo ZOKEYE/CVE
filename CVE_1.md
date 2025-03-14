@@ -6,7 +6,7 @@
 A Remote Code Execution (RCE) vulnerability exists in the interface of Aishida Co., Ltd.'s call center system. Attackers can exploit this vulnerability by crafting malicious request parameters to execute arbitrary shell commands on the target server, thereby gaining full control of the system. The root cause is insufficient input validation, allowing attackers to inject command separators (e.g., `||`) to trigger malicious code execution.  
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/38476061/1741962864697-455e1676-a6e4-4199-9cd7-c59a34662aaa.png)
-**Vulnerability Website：**http://www.asd.com.cn/
+**Vulnerability Website**http://www.asd.com.cn/
 
 # Asset Verification
 ## Company Profile
