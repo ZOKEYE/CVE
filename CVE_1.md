@@ -1,12 +1,10 @@
 # Vulnerability Title
 **Remote Code Execution (RCE) Vulnerability in Aishida Co., Ltd. Call Center System**  
 
----
 
 # Vulnerability Overview
 A Remote Code Execution (RCE) vulnerability exists in the interface of Aishida Co., Ltd.'s call center system. Attackers can exploit this vulnerability by crafting malicious request parameters to execute arbitrary shell commands on the target server, thereby gaining full control of the system. The root cause is insufficient input validation, allowing attackers to inject command separators (e.g., `||`) to trigger malicious code execution.  
 
----
 
 # Asset Verification
 ## Company Profile
@@ -26,7 +24,6 @@ Aishida has participated in drafting 20 national or industry standards for cookw
 + **Website:** [http://www.chinaasd.com](http://www.chinaasd.com)  
 + **Email:** 445778987@qq.com
 
----
 
 # Technical Analysis
 ## Vulnerability Location
@@ -53,7 +50,6 @@ ffmpeg -i a 'aaabbbcccddd || sleep 5 ||.amr output.mp3
 
 The shell interpreter treats `||` as command separators, causing `sleep 5` to execute independently.
 
----
 
 # Proof of Concept (PoC)
 ## PoC 1: Delay via Sleep Command
@@ -91,7 +87,6 @@ Connection: keep-alive
 ![](https://cdn.nlark.com/yuque/0/2025/png/38476061/1741961160896-35b79252-647c-4447-ac0b-b75b87a5b4c1.png)  
 ![](https://cdn.nlark.com/yuque/0/2025/png/38476061/1741961815540-79db6fd6-544e-44fc-aa78-6d7471e2cae6.png)  
 
----
 
 ## PoC 2: Sleep for 10 Seconds
 ```http
@@ -108,7 +103,6 @@ Connection: keep-alive
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/38476061/1741961982633-d84201b4-5d26-421b-b924-ef003e78fdd6.png)  
 
----
 
 # Impact Assessment
 1. **Full Server Compromise:** Attackers can execute commands like `rm -rf /` or `wget malicious_script`, leading to data breaches or system crashes.  
@@ -116,7 +110,6 @@ Connection: keep-alive
 3. **Compliance Risks:** Violates Articles 21 and 25 of China’s Cybersecurity Law, exposing the company to legal penalties.  
 4. **Reputation Damage:** Data breaches severely harm brand credibility.
 
----
 
 # Remediation Strategies
 ## 1. Input Filtering & Whitelisting
@@ -143,11 +136,10 @@ subprocess.run(["ffmpeg", "-i", user_input + ".amr", "output.mp3"], shell=False)
 + **Code Audit:** Review all interfaces for similar vulnerabilities.  
 + **Penetration Testing:** Conduct regular third-party black-box testing.
 
----
 
 **Formatting Notes:**  
 
-1. Use `---` to separate sections for clarity.  
+1. Use ` to separate sections for clarity.  
 2. Specify code block languages (e.g., `bash`, `http`) for readability.  
 3. Include technical details (e.g., regex patterns, code samples) in remediation strategies.  
 4. Supplement PoC sections with screenshots to enhance credibility.
