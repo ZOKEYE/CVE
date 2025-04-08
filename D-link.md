@@ -1,4 +1,4 @@
-# D-link DWR-M961 has a formStaticDHCP stack overflow vulnerability
+# D-link DWR-M961 has a Buffer overflow vulnerability
 
 ## Product Information
 
